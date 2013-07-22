@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/lightpriest/knife-graph'
   s.summary     = %q{Plugin that exports Chef installations structure in a graph}
   s.description = s.summary
+  s.license     = 'Apache v2'
 
   s.add_dependency 'graph'
   s.add_dependency 'mixlib-shellout'
