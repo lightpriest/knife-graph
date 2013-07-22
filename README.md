@@ -1,6 +1,8 @@
 knife-graph plugin
 ==================
 
+[![Gem Version](https://badge.fury.io/rb/knife-graph.png)](http://badge.fury.io/rb/knife-graph)
+
 A knife plugin that creates a graph out of various Chef resources.
 
 Currently the only supported output is the mapping from roles to other roles and recipes (run_list).
@@ -9,6 +11,12 @@ Requirements
 ------------
 
 * graphviz
+
+Output Legend
+-------------
+
+* Box: Role
+* Ellipse: Recipe
 
 SUBCOMMANDS
 ===========
