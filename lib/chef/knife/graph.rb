@@ -22,7 +22,7 @@ module KnifeGraph
            :default => 'jpg'
 
     def run
-      if config[:environment] and Chef::Environment.list.find { |e, url| e == config[:environment] }
+      if config[:environment] and not Chef::Environment.list.find { |e, url| e == config[:environment] }
         raise "Environment '#{config[:environment]}' not found"
       end
 
