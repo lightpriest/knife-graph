@@ -41,3 +41,9 @@ If STDOUT output is used, one can set the type. (Default is jpg)
     knife graph -O knife-graph.bmp # => knife-graph.bmp
     knife graph -O knife-graph.dot # => knife-graph.dot
     knife graph -O- -tjpg > my-chef-installation.jpg # => JPG output to STDOUT
+
+Build and Install
+-----------------
+
+    $ rake gem
+    $ gem install pkg/knife-graph-VERSION.gem
