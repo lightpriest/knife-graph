@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Or Cohen']
   s.email       = ['orc@fewbytes.com']
-  s.homepage    = 'https://github.com/fewbytes/knife-graph'
+  s.homepage    = 'https://github.com/lightpriest/knife-graph'
   s.summary     = %q{Plugin that exports Chef installations structure in a graph}
   s.description = s.summary
 
