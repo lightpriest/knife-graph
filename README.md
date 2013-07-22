@@ -1,14 +1,14 @@
 knife-graph plugin
 ==================
 
-A knife plugin that creates a graph out of various Chef entities.
+A knife plugin that creates a graph out of various Chef resources.
 
-Currently the only supported output is a mapping from roles to other roles and recipes (run_list).
+Currently the only supported output is the mapping from roles to other roles and recipes (run_list).
 
 SUBCOMMANDS
 ===========
 
-Currently, this plugin supported only one knife subcommand. More will probably be added later.
+Only one knife subcommand is supported. More will probably be added later, to support different resource mappings.
 
 knife graph
 -----------
@@ -28,12 +28,12 @@ same resolving Chef does when executing a run_list.
 ### -O FILENAME, --output=FILENAME
 
 Sets the output filename (and type according to the extension, [supported types](http://www.graphviz.org/doc/info/output.html))
-If the .dot extension is used, no rendering is performed. With .dot you could take the file, perform extra manipulation
+If the .dot extension is used, no rendering is performed. With .dot you could use the file, to make custom manipulations
 or render it using your favorite tool. Use a dash (`-`) to set output to STDOUT.
 
 ### -t TYPE, --type=TYPE
 
-If STDOUT output is used, one can set the type. (Default is jpg)
+If STDOUT output is used, this option sets the type. Otherwise, ignored. (Default is jpg)
 
 ### Examples
 
