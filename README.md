@@ -10,6 +10,12 @@ Requirements
 
 * graphviz
 
+Output Legend
+-------------
+
+* Box: Role
+* Ellipse: Recipe
+
 SUBCOMMANDS
 ===========
 
