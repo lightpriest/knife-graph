@@ -12,8 +12,11 @@ Gem::Specification.new do |s|
   s.description = s.summary
   s.license     = 'Apache v2'
 
+  s.requirements   = ['graphviz']
   s.add_dependency 'graph'
   s.add_dependency 'mixlib-shellout'
+
+  s.post_install_message = 'Thanks for installing knife-graph. Please make sure to install graphviz.'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
