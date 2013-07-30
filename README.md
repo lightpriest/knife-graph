@@ -31,7 +31,7 @@ knife-graph.jpg with the exported data.
 
     knife graph # => knife-graph.jpg
 
-A couple of options are available:
+A few options are available:
 
 ### Environment
 
