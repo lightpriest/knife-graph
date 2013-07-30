@@ -22,6 +22,13 @@ module KnifeGraph
            :default => 'jpg'
 
     def run
+      # Determine the requested output type
+      output_type = if config[:output] == '-'
+                      config[:type]
+                    else
+                      File.extname(config[:output]).split('.').last
+                    end
+
       if config[:environment] and not Chef::Environment.list.find { |e, url| e == config[:environment] }
         raise "Environment '#{config[:environment]}' not found"
       end
@@ -51,13 +58,6 @@ module KnifeGraph
 
       # Graph dot data
       dot_str = graph.to_s
-
-      # Determine the requested output type
-      output_type = if config[:output] == '-'
-                      config[:type]
-                    else
-                      File.extname(config[:output]).split('.').last
-                    end
 
       # Determine the right output
       if output_type == 'dot'
