@@ -13,7 +13,7 @@ module KnifeGraph
     option :output,
            :short => '-O',
            :long => '--output VALUE',
-           :description => 'The output filename. See http://www.graphviz.org/doc/info/output.html for supported file types. \'-\' for STDOUT (Default is knife-graph.dot)',
+           :description => 'The output filename. See http://www.graphviz.org/doc/info/output.html for supported file types. \'-\' for STDOUT (Default is knife-graph.jpg)',
            :default => 'knife-graph.jpg'
 
     option :type,
