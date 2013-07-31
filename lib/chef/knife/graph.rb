@@ -5,6 +5,7 @@ module KnifeGraph
     deps do
       require 'graph'
       require 'mixlib/shellout'
+      require 'ohai'
     end
 
     banner "knife graph (options)"
@@ -28,6 +29,16 @@ module KnifeGraph
                     else
                       File.extname(config[:output]).split('.').last
                     end
+
+      # Check if dot (graphviz) is available in path (.dot may still be used)
+      begin
+        output_type != 'dot' and Mixlib::ShellOut('dot -V').run_command
+      rescue
+        raise 'dot executable not found, it is needed for image rendering. ' +
+                  'Please install Graphviz with your package manager ' +
+                  'or select the dot output type to analyze the graph with other tools  ' +
+                  '(`knife graph -O knife-graph.dot`)'
+      end
 
       if config[:environment] and not Chef::Environment.list.find { |e, url| e == config[:environment] }
         raise "Environment '#{config[:environment]}' not found"
