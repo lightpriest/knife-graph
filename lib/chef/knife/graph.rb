@@ -5,7 +5,6 @@ module KnifeGraph
     deps do
       require 'graph'
       require 'mixlib/shellout'
-      require 'ohai'
     end
 
     banner "knife graph (options)"
