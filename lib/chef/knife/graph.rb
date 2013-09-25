@@ -3,7 +3,7 @@ require 'chef/knife'
 module KnifeGraph
   class Graph < Chef::Knife
     deps do
-      require 'graph'
+      require 'graphviz'
       require 'mixlib/shellout'
     end
 
@@ -43,26 +43,23 @@ module KnifeGraph
         raise "Environment '#{config[:environment]}' not found"
       end
 
-      graph = ::Graph.new
+      graph = GraphViz.new(:knife, :type => :digraph)
 
       Chef::Role.list.each do |r, url|
         r_node = "role:#{r}"
-
-        graph.node(r_node, r)
-        graph.square << graph.node(r_node)
+        graph.add_node(r_node, :label => r, :shape => 'square')
 
         role = Chef::Role.load(r)
 
         role.run_list_for(config[:environment]).recipe_names.each do |recipe|
-          graph.edge r_node, "recipe:#{recipe}"
-          graph.node("recipe:#{recipe}", recipe)
+          graph.add_node("recipe:#{recipe}", :label => recipe)
+          graph.add_edge(r_node, "recipe:#{recipe}")
         end
 
         role.run_list_for(config[:environment]).role_names.each do |role_name|
           role_node = "role:#{role_name}"
-          graph.node(role_node, role_name)
-          graph.square << graph.node(role_node)
-          graph.edge r_node, role_node
+          graph.add_node(role_node, :label => role_name, :shape => 'square')
+          graph.add_edge(r_node, role_node)
         end
       end
 

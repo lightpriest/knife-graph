@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.license     = 'Apache v2'
 
   s.requirements   = ['graphviz']
-  s.add_dependency 'graph'
+  s.add_dependency 'ruby-graphviz'
   s.add_dependency 'mixlib-shellout'
 
   s.post_install_message = 'Thanks for installing knife-graph. Please make sure to install graphviz.'
