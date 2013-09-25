@@ -31,7 +31,7 @@ module KnifeGraph
 
       # Check if dot (graphviz) is available in path (.dot may still be used)
       begin
-        output_type != 'dot' and Mixlib::ShellOut('dot -V').run_command
+        output_type != 'dot' and Mixlib::ShellOut.new('dot -V').run_command
       rescue
         raise 'dot executable not found, it is needed for image rendering. ' +
                   'Please install Graphviz with your package manager ' +
